@@ -6,7 +6,8 @@ This is the 5th project of the Google Front-End Developers Nanodegree at Udacity
 
 ## How to run the application
 
-Clone or download the repository and open the index file on the browser to see the application along with the results of Jasmine testing. You can see the live page here: https://evigian.github.io/feedreader/
+Clone or download the repository and open the index file on the browser to see the application along with the results of Jasmine testing. 
+
 ## Jasmine tests
 
 1. A test within RSS Feeds suite that loops through each feed and ensures that they have a URL defined and this is not empty.
