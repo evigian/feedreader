@@ -32,11 +32,6 @@ $(function() {
          * and that the URL is not empty.
          */
         
-		/* A test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
-        
 		it('each feed has a URL defined and the URL is not empty', function() {
 			allFeeds.forEach(function(feed) {
 				expect(feed.url).toBeDefined();
@@ -69,7 +64,7 @@ $(function() {
          */
 
 		it('is hidden by default', function () {
-			expect($('body').hasClass('menu-hidden')).toBeTruthy();
+			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 
 		/* A test that ensures the menu changes
@@ -80,12 +75,11 @@ $(function() {
 
 		it('changes visibility when the menu icon is clicked', function () {
 			$('.menu-icon-link').click();
-			expect($('body').hasClass('menu-hidden')).toBeFalsy();
+			expect($('body').hasClass('menu-hidden')).toBe(false);
 			$('.menu-icon-link').click();
-			expect($('body').hasClass('menu-hidden')).toBeTruthy();
+			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 	});
-	
 	
 	    /* A new test suite named "Initial Entries" */
 	describe('Initial Entries', function() {
@@ -105,8 +99,7 @@ $(function() {
 			expect($('.feed .entry').length).toBeGreaterThan(0);
 		});
 	});
-	
-	
+
 	    /* A new test suite named "New Feed Selection" */
 	describe('New Feed Selection', function() {
 		let firstFeedContent;
@@ -117,19 +110,18 @@ $(function() {
 			loadFeed(0, function() {
 				firstFeedContent = $('.feed').html();
 				loadFeed(1, function() {
-                    secondFeedContent = $('.feed').html();
-                    done();
+					secondFeedContent = $('.feed').html();
+					done();
 				});     
 			});
 		});
-		
 	    /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
 
-         it('the content changes when a new feed is loaded', function() {
-            expect(firstFeedContent).not.toEqual(secondFeedContent);
-          });
-     });
+		it('the content changes when a new feed is loaded', function() {
+			expect(firstFeedContent).not.toEqual(secondFeedContent);
+		});
+	});
 }());
